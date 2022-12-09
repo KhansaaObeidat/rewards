@@ -1,0 +1,13 @@
+//يستخدم لسهولة تشغيل البرنامج من اي ملف 
+// we can use this to run the project at any file not just the dart file
+{
+    "version":"0.2.0",
+    "configurations":[
+        {"name":"Flutter",
+    "request":"launch",
+"type":"dart",
+"program":"lib/main.dart"
+}
+
+    ]
+}
