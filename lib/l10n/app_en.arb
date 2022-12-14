@@ -1,5 +1,9 @@
 {
-    "login_header_select_country": "select country"
+    "email_hint": "Email",
+    "password_hint": "password",
+
+    "email_lable": "Enter your Email",
+    "password_lable": "Enter your password"
   
 
 }

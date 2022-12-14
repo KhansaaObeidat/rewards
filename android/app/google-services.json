@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "448448825226",
+    "project_id": "rewards-eee86",
+    "storage_bucket": "rewards-eee86.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:448448825226:android:02ea4ef3c9527703bd2a73",
+        "android_client_info": {
+          "package_name": "com.example.rewards_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "448448825226-egenu70na119gjju1ff6ur5m2qfrjo4g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDlmcmo_YRFrrbYo8_x8nd3nhDavSr7mY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "448448825226-egenu70na119gjju1ff6ur5m2qfrjo4g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,6 +1,11 @@
 
 {
-    "login_header_select_country": "اختر البلد"
+    "email_hint": "البريد الإلكتروني",
+    "password_hint": "كلمة السر",
+
+    "email_lable": "أدخل البريد الإلكتروني",
+        "password_lable": "أدخل كلمة السر"
+
   
 
 }

@@ -59,7 +59,7 @@ class MyAppState extends State<MyApp> {
         Locale('ar', ''), // Arabic
         Locale('en', ''), // English
       ],
-      home: const LoginScreen(),
+      home:  LoginScreen(),
     );
   }
 }
