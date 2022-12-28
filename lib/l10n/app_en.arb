@@ -1,9 +1,22 @@
 {
     "email_hint": "Email",
     "password_hint": "password",
+    "repassword_hint": "password",
+        "fullName_hint": "Full Name",
+
+
+    
 
     "email_lable": "Enter your Email",
-    "password_lable": "Enter your password"
+    "password_lable": "Enter your password",
+    "repassword_lable": "Re_enter your password",
+    "fullName_lable": "Enter your Full Name",
+    "buttom_tabber_home":"Home",
+    "buttom_tabber_score":"Score",
+    "buttom_tabber_profile":"Profile",
+    "buttom_tabber_rewards":"Rewards"
+
+
   
 
 }

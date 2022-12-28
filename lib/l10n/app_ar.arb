@@ -2,9 +2,21 @@
 {
     "email_hint": "البريد الإلكتروني",
     "password_hint": "كلمة السر",
+    "repassword_hint": "إعادة كلمة السر",
+        "fullName_hint": "الاسم الكامل",
+
+    
+
 
     "email_lable": "أدخل البريد الإلكتروني",
-        "password_lable": "أدخل كلمة السر"
+    "password_lable": "أدخل كلمة السر",
+    "repassword_lable": "أعد أدخال كلمة السر",
+    "fullName_lable": "أدخل الاسم بالكامل",
+    "buttom_tabber_home":"الصفحة الرئيسية",
+    "buttom_tabber_score":"نقاطي",
+    "buttom_tabber_profile":"حسابي",
+    "buttom_tabber_rewards":"الجوائز"
+
 
   
 

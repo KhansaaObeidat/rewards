@@ -1,8 +1,7 @@
-
 import 'package:flutter/material.dart';
 
-class RewardsScreen extends StatelessWidget {
-  const RewardsScreen({super.key});
+class ScoreScreen extends StatelessWidget {
+  const ScoreScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

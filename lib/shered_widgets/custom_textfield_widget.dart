@@ -28,51 +28,48 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      controller: controller,
-      enabled: enabled,
-      decoration: InputDecoration(
-          icon: prefixIcon,
-          errorText: errorMessage,
-          hintText: hintText,
-          labelText: lableText,
-          // labelStyle: CustomTextStyle().medium(
-          //     color: controller.text.isNotEmpty
-          //         ? const Color(0xffe04e4d)
-          //         : const Color(0xff384048),
-          //     size: 14),
-          enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                  color: controller.text.isNotEmpty
-                      ? const Color(0xffe04e4d)
-                      : const Color(0xff384048))),
-          focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                  color: controller.text.isNotEmpty
-                      ? const Color(0xffe04e4d)
-                      : const Color(0xff384048))),
-          border: OutlineInputBorder(
-              borderSide: BorderSide(
-                  color: controller.text.isNotEmpty
-                      ? const Color(0xffe04e4d)
-                      : const Color(0xff384048))),
-                      filled: true,
-                      fillColor: enabled? const Color.fromARGB(255, 236, 20, 67):const Color.fromARGB(255, 112, 104, 104),
-                      
-                      ),
-                      
-      obscureText: obscureText,
-      style: enabled
-          ? const TextStyle(fontSize: 14, color: Colors.black)
-          : const TextStyle(fontSize: 14, color: Colors.grey),
-      inputFormatters: inputFormatters,
-      onChanged: (text){
-        if(onChange!=null){
-          onChange!(text);
-        }
-      },
-      keyboardType: keyboaredType,
-      cursorColor: const Color(0xff100c31), 
+    return Padding(
+      padding: const EdgeInsets.only(left:16.0,right: 16),
+      child: TextField(
+        controller: controller,
+        enabled: enabled,
+        decoration: InputDecoration(
+            icon: prefixIcon,
+            errorText: errorMessage,
+            hintText: hintText,
+            labelText: lableText,
+            labelStyle: TextStyle(
+                color: controller.text.isNotEmpty
+                    ? Color.fromARGB(255, 255, 255, 255)
+                    : const Color(0xff384048),
+                fontSize: 20),
+            enabledBorder: const OutlineInputBorder(
+                borderSide: BorderSide(
+                    color:  Color.fromARGB(255, 235, 238, 240))),
+            focusedBorder: const OutlineInputBorder(
+                borderSide: BorderSide(
+                    color:  Color.fromARGB(255, 235, 238, 240))),
+            border:const OutlineInputBorder(
+                borderSide: BorderSide(
+                    color:  Color.fromARGB(255, 235, 238, 240))),
+                        filled: true,
+                        fillColor: enabled? Color.fromARGB(255, 253, 221, 221):const Color.fromARGB(255, 112, 104, 104),
+                        
+                        ),
+                        
+        obscureText: obscureText,
+        style: enabled
+            ? const TextStyle(fontSize: 14, color: Colors.black)
+            : const TextStyle(fontSize: 14, color: Colors.grey),
+        inputFormatters: inputFormatters,
+        onChanged: (text){
+          if(onChange!=null){
+            onChange!(text);
+          }
+        },
+        keyboardType: keyboaredType,
+        cursorColor: const Color(0xff100c31), 
+      ),
     );
   }
 }
