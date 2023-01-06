@@ -15,7 +15,13 @@
     "buttom_tabber_home":"الصفحة الرئيسية",
     "buttom_tabber_score":"نقاطي",
     "buttom_tabber_profile":"حسابي",
-    "buttom_tabber_rewards":"الجوائز"
+    "buttom_tabber_rewards":"الجوائز",
+"check_Internet_Conecction":"تأكد من الاتصال بالشبكة",
+"sign_up_button":"التسجيل",
+"sign_in_button":"تسجيل الدخول",
+    "dont_have_an_account":"ليس لديك حساب؟",
+        "error_message":"خطأ بالايميل أو كلمة السر"
+
 
 
   

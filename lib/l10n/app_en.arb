@@ -1,11 +1,8 @@
 {
     "email_hint": "Email",
     "password_hint": "password",
-    "repassword_hint": "password",
+    "repassword_hint": "Repassword",
         "fullName_hint": "Full Name",
-
-
-    
 
     "email_lable": "Enter your Email",
     "password_lable": "Enter your password",
@@ -14,9 +11,13 @@
     "buttom_tabber_home":"Home",
     "buttom_tabber_score":"Score",
     "buttom_tabber_profile":"Profile",
-    "buttom_tabber_rewards":"Rewards"
+    "buttom_tabber_rewards":"Rewards",
+    "check_Internet_Conecction":"Check Internet Connection",
+    "sign_up_button":"SIGN UP",
+    "sign_in_button":"SIGN IN",
+    "dont_have_an_account":"Don't Have an account?",
+    "error_message":"Error in email or password"
+    
 
-
-  
 
 }

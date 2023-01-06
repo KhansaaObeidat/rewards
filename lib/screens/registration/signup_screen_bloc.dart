@@ -6,6 +6,10 @@ import '../../utils/shared_methods.dart';
 enum signUpStatusEnum { faild, success, none, inProgress }
 
 class SignUpBloc {
+    ValueNotifier<bool> showPasswordLetter = ValueNotifier<bool>(true);
+        ValueNotifier<bool> showrePasswordLetter = ValueNotifier<bool>(true);
+
+
   TextEditingController emailController = TextEditingController();
   TextEditingController fullNameController = TextEditingController();
 

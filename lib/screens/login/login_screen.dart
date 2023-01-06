@@ -5,6 +5,7 @@ import 'package:rewards_app/screens/login/login_screen_bloc.dart';
 import 'package:rewards_app/screens/main_container/main_container.dart';
 import 'package:rewards_app/screens/registration/signup_screen.dart';
 import 'package:rewards_app/utils/custom_text_style.dart';
+import 'package:rewards_app/utils/network_info_services.dart';
 
 import '../../shered_widgets/custom_button_widget.dart';
 import '../../shered_widgets/custom_textfield_widget.dart';
@@ -51,31 +52,52 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(
                 height: 20,
               ),
-              CustomTextField(
-                controller: _bloc.passwordController,
-                obscureText: true,
-                hintText: AppLocalizations.of(context)!.password_lable,
-                // errorMessage: "",
-                lableText: AppLocalizations.of(context)!.password_hint,
-                enabled: true,
-                prefixIcon: const Icon(Icons.password),
-                onChange: (value) => _bloc.validateFields(),
+              ValueListenableBuilder<bool>(
+                valueListenable:_bloc.showPasswordLetter,
+                builder: (context, snapshot,child) {
+                  return CustomTextField(
+                    controller: _bloc.passwordController,
+                    obscureText: snapshot,
+                    hintText: AppLocalizations.of(context)!.password_lable,
+                    // errorMessage: "",
+                    lableText: AppLocalizations.of(context)!.password_hint,
+                    enabled: true,
+                    prefixIcon: const Icon(Icons.password),
+                    suffixIcon: IconButton(
+                      icon: const Icon(Icons.remove_red_eye),
+                      onPressed: () {
+                        _bloc.showPasswordLetter.value =
+                            !_bloc.showPasswordLetter.value;
+                      },
+                    ),
+                    onChange: (value) => _bloc.validateFields(),
+                  );
+                }
               ),
               ValueListenableBuilder<bool>(
                   valueListenable: _bloc.fieldValidation,
                   builder: (context, snapshot, child) {
                     return CustomButtonWidget(
-                      title: "Log in",
+                      title: AppLocalizations.of(context)!.sign_in_button,
                       enable: snapshot,
                       onPress: () async {
-                        await _bloc.signInWithEmailAndPassword().then((value) {
-                          if (value) {
-                            Navigator.of(context).pushAndRemoveUntil(
-                                MaterialPageRoute(builder: (ctx) {
-                              return  MainContainer();
-                            }), (route) => false);
-                          }
-                        });
+                        if (await NetworkInfoService().isConnected()) {
+                          await _bloc
+                              .signInWithEmailAndPassword()
+                              .then((value) {
+                            if (value) {
+                              Navigator.of(context).pushAndRemoveUntil(
+                                  MaterialPageRoute(builder: (ctx) {
+                                return MainContainer();
+                              }), (route) => false);
+                            }
+                          });
+                        } else {
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            content: Text(AppLocalizations.of(context)!
+                                .check_Internet_Conecction),
+                          ));
+                        }
                       },
                     );
                   }),
@@ -89,16 +111,33 @@ class _LoginScreenState extends State<LoginScreen> {
                         style: CustomTextStyle()
                             .regular(color: Colors.red, size: 18),
                       );
-                    } else if(snapshot==LoginStatusEnum.inProgress){
+                    } else if (snapshot == LoginStatusEnum.inProgress) {
                       return const CircularProgressIndicator();
                     } else {
                       return Container();
                     }
                   }),
-
-                  TextButton(onPressed: (){
-                    Navigator.of(context).push(MaterialPageRoute(builder: (ctx){return  SignUpScreen();},));
-                  }, child:  Text("Sign Up",style:CustomTextStyle().medium(color:Colors.blueAccent,size:18)),)
+              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                 Text(AppLocalizations.of(context)!.dont_have_an_account),
+                TextButton(
+                  onPressed: () async {
+                    if (await NetworkInfoService().isConnected()) {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (ctx) {
+                          return SignUpScreen();
+                        },
+                      ));
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: Text(AppLocalizations.of(context)!
+                              .check_Internet_Conecction)));
+                    }
+                  },
+                  child: Text(AppLocalizations.of(context)!.sign_up_button,
+                      style: CustomTextStyle()
+                          .medium(color: Colors.blueAccent, size: 18)),
+                ),
+              ])
             ],
           ),
         ),

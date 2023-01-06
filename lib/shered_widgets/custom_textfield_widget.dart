@@ -10,6 +10,9 @@ class CustomTextField extends StatelessWidget {
   final bool enabled;
   final TextInputType? keyboaredType;
   final Widget? prefixIcon;
+    final Widget? suffixIcon;
+
+  
   final List<TextInputFormatter>? inputFormatters;
   final Function(String text)? onChange;
 
@@ -22,6 +25,7 @@ class CustomTextField extends StatelessWidget {
       this.enabled = true,
       this.keyboaredType,
       this.prefixIcon,
+      this.suffixIcon,
       this.inputFormatters,
       this.onChange,
       super.key});
@@ -38,6 +42,7 @@ class CustomTextField extends StatelessWidget {
             errorText: errorMessage,
             hintText: hintText,
             labelText: lableText,
+            suffixIcon: suffixIcon,
             labelStyle: TextStyle(
                 color: controller.text.isNotEmpty
                     ? Color.fromARGB(255, 255, 255, 255)

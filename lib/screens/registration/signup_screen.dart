@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:rewards_app/screens/login/login_screen.dart';
-import 'package:rewards_app/screens/main_container/main_container.dart';
+
 import 'package:rewards_app/screens/registration/signup_screen_bloc.dart';
-import 'package:rewards_app/shered_widgets/custom_button_widget.dart';
 import 'package:rewards_app/shered_widgets/custom_textfield_widget.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../../shered_widgets/custom_button_widget.dart';
+
 
 class SignUpScreen extends StatelessWidget {
   SignUpScreen({super.key});
@@ -50,27 +52,53 @@ class SignUpScreen extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                CustomTextField(
-                  controller: _bloc.passwordController,
-                  hintText: AppLocalizations.of(context)!.password_hint,
-                  lableText: AppLocalizations.of(context)!.password_lable,
-                  prefixIcon: const Icon(Icons.password),
-                  obscureText: true,
-                  keyboaredType: TextInputType.visiblePassword,
-                  onChange: (value) => _bloc.validateFields(),
-                ),
+                  ValueListenableBuilder<bool>(
+                valueListenable:_bloc.showPasswordLetter,
+                builder: (context, snapshot,child) {
+                  return CustomTextField(
+                    controller: _bloc.passwordController,
+                    obscureText: snapshot,
+                    hintText: AppLocalizations.of(context)!.password_lable,
+                    // errorMessage: "",
+                    lableText: AppLocalizations.of(context)!.password_hint,
+                    enabled: true,
+                    prefixIcon: const Icon(Icons.password),
+                    suffixIcon: IconButton(
+                      icon: const Icon(Icons.remove_red_eye),
+                      onPressed: () {
+                        _bloc.showPasswordLetter.value =
+                            !_bloc.showPasswordLetter.value;
+                      },
+                    ),
+                    onChange: (value) => _bloc.validateFields(),
+                  );
+                }
+              ),
                 const SizedBox(
                   height: 20,
                 ),
-                CustomTextField(
-                  controller: _bloc.repasswordController,
-                  hintText: AppLocalizations.of(context)!.repassword_hint,
-                  lableText: AppLocalizations.of(context)!.repassword_lable,
-                  prefixIcon: const Icon(Icons.password),
-                  obscureText: true,
-                  keyboaredType: TextInputType.visiblePassword,
-                  onChange: (value) => _bloc.validateFields(),
-                ),
+                  ValueListenableBuilder<bool>(
+                valueListenable:_bloc.showrePasswordLetter,
+                builder: (context, snapshot,child) {
+                  return CustomTextField(
+                    controller: _bloc.repasswordController,
+                    obscureText: snapshot,
+                    hintText: AppLocalizations.of(context)!.repassword_lable,
+                    // errorMessage: "",
+                    lableText: AppLocalizations.of(context)!.repassword_hint,
+                    enabled: true,
+                    prefixIcon: const Icon(Icons.password),
+                    suffixIcon: IconButton(
+                      icon: const Icon(Icons.remove_red_eye),
+                      onPressed: () {
+                        _bloc.showrePasswordLetter.value =
+                            !_bloc.showrePasswordLetter.value;
+                      },
+                    ),
+                    onChange: (value) => _bloc.validateFields(),
+                  );
+                }
+              ),
                 const SizedBox(
                   height: 20,
                 ),
